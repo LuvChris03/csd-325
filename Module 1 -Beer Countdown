@@ -1,0 +1,28 @@
+# Author: Christopher Craig
+# Assignment: Module 1 - Beer Countdown
+
+def beer_countdown(bottles):
+    while bottles > 0:
+        if bottles > 1:
+            print(f"{bottles} bottles of beer on the wall, {bottles} bottles of beer.")
+            next_bottle = bottles - 1
+            bottle_word = "bottle" if next_bottle == 1 else "bottles"
+            print(f"Take one down and pass it around, {next_bottle} {bottle_word} of beer on the wall.\n")
+        else:
+            print("1 bottle of beer on the wall, 1 bottle of beer.")
+            print("Take one down and pass it around, no more bottles of beer on the wall.\n")
+        bottles -= 1
+
+def main():
+    try:
+        count = int(input("Enter number of bottles: "))
+        if count <= 0:
+            print("Please enter a positive number.")
+        else:
+            beer_countdown(count)
+            print("Time to buy more beer!")
+    except ValueError:
+        print("Invalid input. Please enter a whole number.")
+
+# Run the program
+main()
