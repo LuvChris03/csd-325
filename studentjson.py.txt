@@ -1,0 +1,40 @@
+studentjson.py
+import json
+
+# File path
+file_path = 'student.json'
+
+# Load the JSON data into a Python list
+with open(file_path, 'r') as file:
+    students = json.load(file)
+
+# Function to print students
+def print_students(student_list):
+    for student in student_list:
+        print(f"{student['L_Name']}, {student['F_Name']} : ID = {student['Student_ID']} , Email = {student['Email']}")
+
+# Step 1: Display original student list
+print("Original Student List:")
+print_students(students)
+
+# Step 2: Add your fictional student data
+new_student = {
+    "F_Name": "Christopher",
+    "L_Name": "Craig",
+    "Student_ID": 21420187,
+    "Email": "chrcraig@my365.bellevue.edu"
+}
+
+students.append(new_student)
+
+# Step 3: Display updated student list
+print("\nUpdated Student List:")
+print_students(students)
+
+# Step 4: Write updated list back to the JSON file
+with open(file_path, 'w') as file:
+    json.dump(students, file, indent=4)
+
+# Final Notification
+print("\nThe student.json file has been updated.")
+
