@@ -1,0 +1,23 @@
+astrojson.py
+import json
+from collections import defaultdict
+
+# Load data from the JSON file
+with open('astros.json', 'r') as file:
+    data = json.load(file)
+
+# Display total number of astronauts
+print(f"\nMessage: {data['message']}")
+print(f"Total astronauts in space: {data['number']}\n")
+
+# Group astronauts by spacecraft
+astronauts_by_craft = defaultdict(list)
+for person in data['people']:
+    astronauts_by_craft[person['craft']].append(person['name'])
+
+# Print astronauts by spacecraft
+for craft, astronauts in astronauts_by_craft.items():
+    print(f"Crew aboard {craft}:")
+    for name in astronauts:
+        print(f" - {name}")
+    print()
