@@ -1,0 +1,35 @@
+Can you vote?.py
+
+def greet_user(name):
+    print(f"Hello, {name}! Welcome to the program.")
+
+def get_user_age():
+    while True:
+        age_input = input("Enter your age: ")
+        if age_input.isdigit():
+            return int(age_input)
+        else:
+            print("Please enter a valid number.")
+
+def check_age_eligibility(age):
+    if age >= 18:
+        print("You are eligible to vote.")
+    else:
+        print("You are not eligible to vote yet.")
+def calculate_age_division(age):
+    try:
+        result = 100 / age  # This will cause ZeroDivisionError if age == 0
+        print(f"100 divided by your age is {result:.2f}")
+    except ZeroDivisionError:
+        print("Error: Age cannot be zero for this calculation.")
+def main():
+    user_name = input("Enter your name: ")
+    greet_user(user_name)
+
+    user_age = get_user_age()
+    calculate_age_division(user_age)  # New action added here for debugging
+    check_age_eligibility(user_age)
+
+if __name__ == "__main__":
+    main()
+
